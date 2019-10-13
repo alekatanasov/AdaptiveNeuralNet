@@ -1,0 +1,2 @@
+# AdaptiveNeuralNet
+Neural network library
