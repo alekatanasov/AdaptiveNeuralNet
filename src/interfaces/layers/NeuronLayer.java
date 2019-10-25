@@ -20,6 +20,11 @@ public interface NeuronLayer extends NetworkLayer{
     
     public void addOutputSynapseLayer(SynapseLayer newLayer);
     
+    /**
+     * 
+     * @return List representation of all output synapse layers to which the current neuron
+     *         layer sends output.
+     */
     public List<SynapseLayer> getOutputSynapseLayers();
     
     /**

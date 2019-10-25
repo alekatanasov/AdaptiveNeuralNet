@@ -59,6 +59,7 @@ public class BasicSynapseLayer extends SynapseLayer{
             }
         }
         
+        // specified weight was not found
         throw new IllegalArgumentException("non existing weight specified");
     }
     
@@ -69,9 +70,11 @@ public class BasicSynapseLayer extends SynapseLayer{
         for(int c=0; c < connections[inputLayerPosition].length; c++){
             if(connections[inputLayerPosition][c] == outputLayerPosition){
                 this.getWeights()[inputLayerPosition][c] = newValue;
+                return;
             }
         }
         
+        // specified weight was not found
         throw new IllegalArgumentException("non existing weight specified");
     }
             
