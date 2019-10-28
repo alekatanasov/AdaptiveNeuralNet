@@ -10,8 +10,10 @@ public abstract class NeuralNet implements interfaces.networks.NeuralNet{
     private int inputLayerSize;
     private int outputLayerSize;
     
-    public NeuralNet(String id){
+    public NeuralNet(String id, int inputSize, int outputSize){
         setId(id);
+        setInputLayerSize(inputSize);
+        setOutputLayerSize(outputSize);
     }
     
     public final void setId(String newId){
@@ -23,7 +25,16 @@ public abstract class NeuralNet implements interfaces.networks.NeuralNet{
     }
     
     @Override
-    public final void setInputLayerSize(int size){
+    public int getInputLayerSize(){
+        return this.inputLayerSize;
+    }
+    
+    @Override
+    public int getOutputLayerSize(){
+        return this.outputLayerSize;
+    }
+    
+    private void setInputLayerSize(int size){
         // error check
         if(size < 1){
             throw new IllegalArgumentException("input layer size cannot be less than 1");
@@ -32,8 +43,7 @@ public abstract class NeuralNet implements interfaces.networks.NeuralNet{
         this.inputLayerSize = size;
     }
     
-    @Override
-    public final void setOutputLayerSize(int size){
+    private void setOutputLayerSize(int size){
         // error check
         if(size < 1){
             throw new IllegalArgumentException("output layer size cannot be less than 1");

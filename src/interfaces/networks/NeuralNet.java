@@ -8,7 +8,7 @@ package interfaces.networks;
 public interface NeuralNet {
     public boolean addLayer(Object layerData);
     
-    public void setInputLayerSize(int size);
+    public int getInputLayerSize();
     
-    public void setOutputLayerSize(int size);
+    public int getOutputLayerSize();
 }

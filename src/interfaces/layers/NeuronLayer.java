@@ -4,7 +4,8 @@ package interfaces.layers;
 import java.util.List;
 
 /**
- *
+ * Represents a collection of neurons.
+ * 
  * @author Alexander Atanasov
  */
 public interface NeuronLayer extends NetworkLayer{
