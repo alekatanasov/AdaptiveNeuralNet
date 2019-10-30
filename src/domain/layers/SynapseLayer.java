@@ -1,9 +1,9 @@
 
 
-package interfaces.layers;
+package domain.layers;
 
 /**
- * Represents connectivity between two neuron layers.
+ * Represents connectivity between neuron layers.
  * 
  * @author Alexander Atanasov
  */
@@ -17,8 +17,4 @@ public interface SynapseLayer extends NetworkLayer{
      * @param inputValue value representing neuron excitation
      */
     public void forwardInput(int inputSourcePosition, float inputValue);
-    
-    public float getWeight(int inputLayerPosition, int outputLayerPosition);
-    
-    public void setWeight(int inputLayerPosition, int outputLayerPosition, float newValue);
 }

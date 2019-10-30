@@ -1,7 +1,7 @@
 
-package layers;
+package domain.layers;
 
-import interfaces.layers.SynapseLayer;
+import domain.layers.SynapseLayer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +11,12 @@ import java.util.List;
  *
  * @author Alexander Atanasov
  */
-public abstract class NeuronLayer implements interfaces.layers.NeuronLayer{
+public abstract class ConnectedNeuronLayer implements domain.layers.NeuronLayer{
     private List<SynapseLayer> outputSynapseLayers;
     
     private ActivationFunction activationFunction;
     
-    public NeuronLayer(ActivationFunction function){
+    public ConnectedNeuronLayer(ActivationFunction function){
         initializeOutputSynapseLayers();
         setActivationFunction(function);
     }

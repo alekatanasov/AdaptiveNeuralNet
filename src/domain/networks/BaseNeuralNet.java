@@ -1,16 +1,16 @@
 
-package networks;
+package domain.networks;
 
 /**
  *
  * @author Alexander Atanasov
  */
-public abstract class NeuralNet implements interfaces.networks.NeuralNet{
+public abstract class BaseNeuralNet implements domain.networks.NeuralNet{
     private String id;
     private int inputLayerSize;
     private int outputLayerSize;
     
-    public NeuralNet(String id, int inputSize, int outputSize){
+    public BaseNeuralNet(String id, int inputSize, int outputSize){
         setId(id);
         setInputLayerSize(inputSize);
         setOutputLayerSize(outputSize);

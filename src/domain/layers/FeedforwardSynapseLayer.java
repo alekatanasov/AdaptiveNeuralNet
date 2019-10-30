@@ -1,21 +1,21 @@
 
-package layers;
+package domain.layers;
 
 /**
  *
  * @author Alexander Atanasov
  */
-public class FeedforwardSynapseLayer extends BasicSynapseLayer {
-    public FeedforwardSynapseLayer(NeuronLayer inputLayer, NeuronLayer outputLayer,
+public class FeedforwardSynapseLayer extends MapedBinarySynapseLayer implements FeedforwardNetworkLayer {
+    public FeedforwardSynapseLayer(ConnectedNeuronLayer inputLayer, ConnectedNeuronLayer outputLayer,
                                    int[][] connectionMap){
         super(inputLayer, outputLayer, connectionMap);
         
     }
     
-    @Override
+    /*@Override
     public void nextActiveCycle(){
         getOutputLayer().nextActiveCycle();
-    }
+    }*/
     
     @Override
     public void nextPassiveCycle(){

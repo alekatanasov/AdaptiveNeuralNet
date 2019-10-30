@@ -1,5 +1,5 @@
 
-package interfaces.layers;
+package domain.layers;
 
 import java.util.List;
 
@@ -19,6 +19,10 @@ public interface NeuronLayer extends NetworkLayer{
      */
     public int getSize();
     
+    /**
+     * 
+     * @param newLayer 
+     */
     public void addOutputSynapseLayer(SynapseLayer newLayer);
     
     /**

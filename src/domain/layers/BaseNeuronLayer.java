@@ -1,23 +1,20 @@
 
 
-package layers;
+package domain.layers;
 
-import interfaces.layers.SynapseLayer;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author Alexander Atanasov
  */
-public class StandardNeuronLayer extends NeuronLayer{
+public class BaseNeuronLayer extends ConnectedNeuronLayer{
     /**
-     * Excitation values for the neurons in this layer. These values are reset to zero at the
+     * Excitation values for the neurons in this outputLayer. These values are reset to zero at the
      * end of each passive cycle.
      */
     private float[] neurons;
     
-    public StandardNeuronLayer(int layerSize, ActivationFunction function){
+    public BaseNeuronLayer(int layerSize, ActivationFunction function){
         super(function);
         initializeNeurons(layerSize);
     }
@@ -35,7 +32,7 @@ public class StandardNeuronLayer extends NeuronLayer{
     
     /**
      * 
-     * @return The number of neurons in this layer
+     * @return The number of neurons in this outputLayer
      */
     @Override
     public int getSize(){
@@ -48,11 +45,11 @@ public class StandardNeuronLayer extends NeuronLayer{
      */
     @Override
     public void nextActiveCycle(){
-        for(int c=0; c <this.getNeurons().length; c++){
-            if(this.neurons[c]!=0){
+        for(int c=0; c < this.getNeurons().length; c++){
+            if(getNeurons()[c] > 0){
                 // send output to all output synapses
-                for(SynapseLayer layer : this.getOutputSynapseLayers()){
-                    layer.forwardInput(c, activationFunction(this.neurons[c]));
+                for(SynapseLayer outputLayer : getOutputSynapseLayers()){
+                    outputLayer.forwardInput(c, activationFunction(getNeurons()[c]));
                 }
             }
         }

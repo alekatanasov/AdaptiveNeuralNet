@@ -1,12 +1,14 @@
 
-package interfaces.networks;
+package domain.networks;
+
+import domain.layers.NetworkLayer;
 
 /**
  *
  * @author Alexander Atanasov
  */
 public interface NeuralNet {
-    public boolean addLayer(Object layerData);
+    public boolean addLayer(NetworkLayer layer);
     
     public int getInputLayerSize();
     

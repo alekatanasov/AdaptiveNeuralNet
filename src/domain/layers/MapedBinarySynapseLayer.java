@@ -1,12 +1,14 @@
 
-package layers;
+package domain.layers;
+
+import domain.layers.MapableSynapseLayer;
 
 
 /**
  *
  * @author Alexander Atanasov
  */
-public class BasicSynapseLayer extends SynapseLayer{
+public class MapedBinarySynapseLayer extends BinarySynapseLayer implements MapableSynapseLayer {
     /**
      * An array which specifies the connections between the input and output layers.
      * The first dimension represents the positions of neurons in the input layer and
@@ -20,7 +22,7 @@ public class BasicSynapseLayer extends SynapseLayer{
      */
     private float[][] weights;
     
-    public BasicSynapseLayer(NeuronLayer inputLayer, NeuronLayer outputLayer,
+    public MapedBinarySynapseLayer(ConnectedNeuronLayer inputLayer, ConnectedNeuronLayer outputLayer,
                              int[][] connectionMap){
         super(inputLayer, outputLayer);
         setConnectionMap(connectionMap);
