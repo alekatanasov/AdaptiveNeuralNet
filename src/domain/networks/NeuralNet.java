@@ -1,13 +1,14 @@
 
 package domain.networks;
 
+import domain.entities.DesignateableEntity;
 import domain.layers.NetworkLayer;
 
 /**
  *
  * @author Alexander Atanasov
  */
-public interface NeuralNet {
+public interface NeuralNet extends DesignateableEntity {
     public boolean addLayer(NetworkLayer layer);
     
     public int getInputLayerSize();

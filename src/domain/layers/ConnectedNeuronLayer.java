@@ -1,22 +1,25 @@
 
 package domain.layers;
 
-import domain.layers.SynapseLayer;
+import domain.entities.DesignatedEntity;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
 /**
- *
+ * Neuron layer which can hold references to synapse layers and defines 
+ * activation functions.
+ * 
  * @author Alexander Atanasov
  */
-public abstract class ConnectedNeuronLayer implements domain.layers.NeuronLayer{
+public abstract class ConnectedNeuronLayer extends DesignatedEntity implements domain.layers.NeuronLayer{
     private List<SynapseLayer> outputSynapseLayers;
     
     private ActivationFunction activationFunction;
     
-    public ConnectedNeuronLayer(ActivationFunction function){
+    public ConnectedNeuronLayer(String id, ActivationFunction function){
+        super(id);
         initializeOutputSynapseLayers();
         setActivationFunction(function);
     }

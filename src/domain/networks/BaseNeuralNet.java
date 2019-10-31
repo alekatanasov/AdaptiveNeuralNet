@@ -1,27 +1,25 @@
 
 package domain.networks;
 
+import domain.entities.DesignatedEntity;
+import domain.layers.NetworkLayer;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Alexander Atanasov
  */
-public abstract class BaseNeuralNet implements domain.networks.NeuralNet{
-    private String id;
+public abstract class BaseNeuralNet extends DesignatedEntity implements domain.networks.NeuralNet{
     private int inputLayerSize;
     private int outputLayerSize;
+    private List<NetworkLayer> networkLayers;
     
     public BaseNeuralNet(String id, int inputSize, int outputSize){
-        setId(id);
+        super(id);
+        initializeNetworkLayers();
         setInputLayerSize(inputSize);
         setOutputLayerSize(outputSize);
-    }
-    
-    public final void setId(String newId){
-        this.id = newId;
-    }
-    
-    public final String getId(){
-        return this.id;
     }
     
     @Override
@@ -50,5 +48,9 @@ public abstract class BaseNeuralNet implements domain.networks.NeuralNet{
         }
         
         this.outputLayerSize = size;
+    }
+    
+    private void initializeNetworkLayers(){
+        this.networkLayers = new ArrayList<>();
     }
 }

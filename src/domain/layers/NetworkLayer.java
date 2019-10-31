@@ -1,11 +1,13 @@
 
 package domain.layers;
 
+import domain.entities.DesignateableEntity;
+
 /**
  * 
  * @author Alexander Atanasov
  */
-public interface NetworkLayer {
+public interface NetworkLayer extends DesignateableEntity {
     /**
      * Active part of excitation cycle
      */

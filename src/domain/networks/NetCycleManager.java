@@ -7,7 +7,7 @@ package domain.networks;
  * 
  * @author Alexander Atanasov
  */
-public interface CycleManager {
+public interface NetCycleManager {
     public void nextActiveCycle();
     
     public void nextPassiveCycle();

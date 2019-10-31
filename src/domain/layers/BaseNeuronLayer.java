@@ -14,8 +14,8 @@ public class BaseNeuronLayer extends ConnectedNeuronLayer{
      */
     private float[] neurons;
     
-    public BaseNeuronLayer(int layerSize, ActivationFunction function){
-        super(function);
+    public BaseNeuronLayer(String id, int layerSize, ActivationFunction function){
+        super(id, function);
         initializeNeurons(layerSize);
     }
     

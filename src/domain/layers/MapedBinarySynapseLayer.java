@@ -1,8 +1,6 @@
 
 package domain.layers;
 
-import domain.layers.MapableSynapseLayer;
-
 
 /**
  *
@@ -22,9 +20,9 @@ public class MapedBinarySynapseLayer extends BinarySynapseLayer implements Mapab
      */
     private float[][] weights;
     
-    public MapedBinarySynapseLayer(ConnectedNeuronLayer inputLayer, ConnectedNeuronLayer outputLayer,
-                             int[][] connectionMap){
-        super(inputLayer, outputLayer);
+    public MapedBinarySynapseLayer(String id, ConnectedNeuronLayer inputLayer, 
+                                   ConnectedNeuronLayer outputLayer, int[][] connectionMap){
+        super(id, inputLayer, outputLayer);
         setConnectionMap(connectionMap);
         initializeWeights();
     }
@@ -92,7 +90,7 @@ public class MapedBinarySynapseLayer extends BinarySynapseLayer implements Mapab
         
         this.connectionMap = new int[map.length][];
         
-        // copy values of map to field connectionMap
+        // copy values of map parameter to the connectionMap field
         for(int c=0;c < map.length;c++){
             this.connectionMap[c] = new int[map[c].length];
             

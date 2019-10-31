@@ -1,16 +1,20 @@
 
 package domain.layers;
 
+import domain.entities.DesignatedEntity;
+
 /**
  * Synapse layer connecting two neuron layers.
  * 
  * @author Alexander Atanasov
  */
-public abstract class BinarySynapseLayer implements domain.layers.SynapseLayer{
+public abstract class BinarySynapseLayer extends DesignatedEntity implements domain.layers.SynapseLayer{
     private ConnectedNeuronLayer inputLayer;
     private ConnectedNeuronLayer outputLayer;
     
-    public BinarySynapseLayer(ConnectedNeuronLayer inputLayer, ConnectedNeuronLayer outputLayer){
+    public BinarySynapseLayer(String id, ConnectedNeuronLayer inputLayer, 
+                              ConnectedNeuronLayer outputLayer){
+        super(id);
         setInputLayer(inputLayer); 
         setOutputLayer(outputLayer);
     }
