@@ -32,6 +32,20 @@ public abstract class BaseNeuralNet extends DesignatedEntity implements domain.n
         return this.outputLayerSize;
     }
     
+    @Override
+    public boolean addLayer(NetworkLayer layer){
+       boolean addSuccess = false;
+       
+       if(layer == null){
+           throw new IllegalArgumentException("new layer cannot be null");
+       }
+       
+       this.networkLayers.add(layer);
+       
+       addSuccess = true;
+       return addSuccess;
+    }
+    
     private void setInputLayerSize(int size){
         // error check
         if(size < 1){

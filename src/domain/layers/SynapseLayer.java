@@ -3,7 +3,8 @@
 package domain.layers;
 
 /**
- * Represents connectivity between neuron layers.
+ * Represents connectivity between neuron layers. Has the ability to send input 
+ * from single neuron layer to other neuron layers.
  * 
  * @author Alexander Atanasov
  */

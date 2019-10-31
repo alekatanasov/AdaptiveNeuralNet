@@ -4,7 +4,7 @@ package domain.layers;
 import domain.entities.DesignatedEntity;
 
 /**
- * Synapse layer connecting two neuron layers.
+ * Synapse layer connecting two neuron layers - designated as input and output.
  * 
  * @author Alexander Atanasov
  */

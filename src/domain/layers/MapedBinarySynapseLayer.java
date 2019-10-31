@@ -6,7 +6,7 @@ package domain.layers;
  *
  * @author Alexander Atanasov
  */
-public class MapedBinarySynapseLayer extends BinarySynapseLayer implements MapableSynapseLayer {
+public class MapedBinarySynapseLayer extends BinarySynapseLayer implements MapableBinarySynapseLayer {
     /**
      * An array which specifies the connections between the input and output layers.
      * The first dimension represents the positions of neurons in the input layer and
@@ -25,16 +25,6 @@ public class MapedBinarySynapseLayer extends BinarySynapseLayer implements Mapab
         super(id, inputLayer, outputLayer);
         setConnectionMap(connectionMap);
         initializeWeights();
-    }
-    
-    @Override
-    public void nextActiveCycle(){
-        // basic synapses have nothing to do
-    }
-    
-    @Override
-    public void nextPassiveCycle(){
-        // basic synapses have  nothing to do here
     }
     
     @Override
