@@ -13,4 +13,8 @@ public interface NeuralNet {
     public int getInputLayerSize();
     
     public int getOutputLayerSize();
+    
+    public void receiveInput(float[] input);
+    
+    public float[] getOutput();
 }
