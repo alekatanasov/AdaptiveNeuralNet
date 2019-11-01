@@ -3,6 +3,7 @@ package domain.networks;
 
 import domain.entities.DesignateableEntity;
 import domain.layers.NetworkLayer;
+import java.util.List;
 
 /**
  *
@@ -43,4 +44,17 @@ public interface NeuralNet extends DesignateableEntity {
      * @return the current values of the output layer of this network
      */
     public float[] getOutput();
+    
+    /**
+     * 
+     * @param id
+     * @return 
+     */
+    public NetworkLayer getLayerById(String id);
+    
+    /**
+     * 
+     * @return 
+     */
+    public List<NetworkLayer> getAllLayers();
 }

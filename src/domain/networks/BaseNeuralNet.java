@@ -52,6 +52,35 @@ public abstract class BaseNeuralNet extends DesignatedEntity implements domain.n
        return addSuccess;
     }
     
+    @Override
+    public List<NetworkLayer> getAllLayers(){
+        return this.networkLayers;
+    }
+    
+    @Override
+    public NetworkLayer getLayerById(String id){
+        NetworkLayer namedLayer = null;
+        for(NetworkLayer layer : getAllLayers()){
+            if(layer.getId().equals(id)){
+                namedLayer = layer;
+            }
+        }
+        
+        //error
+        if(namedLayer == null){
+            throw new IllegalArgumentException("non existant layer id");
+        }
+        
+        return namedLayer;
+    }
+    
+    @Override
+    public void receiveInput(float[] input){
+        for(float neuronInput : input){
+            //this.
+        }
+    }
+    
     private void setInputLayerSize(int size){
         // error check
         if(size < 1){

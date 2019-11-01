@@ -9,6 +9,8 @@ package domain.networks;
  * @author Alexander Atanasov
  */
 public interface NetworkCycleManager {
+    public void addLayer(int position);
+    
     public void nextActiveCycle();
     
     public void nextPassiveCycle();
