@@ -65,6 +65,15 @@ public class BaseNeuronLayer extends ConnectedNeuronLayer{
         }
     }
     
+    @Override
+    public float getNeuronExcitation(int neuronPosition){
+        if(neuronPosition < 0 || neuronPosition > getSize()-1){
+            throw new IllegalArgumentException("out of bounds neuronPosition");
+        }
+        
+        return this.getNeurons()[neuronPosition];
+    }
+    
     private void initializeNeurons(int size){
         if(size < 0){
             throw new IllegalArgumentException("neurons's size cannot be negative");

@@ -40,5 +40,7 @@ public interface NeuronLayer extends NetworkLayer{
      * @param input input to receive
      */
     public void receiveInput(int intputTarget, float input);
+    
+    public float getNeuronExcitation(int neuronPosition);
    
 }

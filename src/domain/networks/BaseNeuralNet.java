@@ -76,9 +76,23 @@ public abstract class BaseNeuralNet extends DesignatedEntity implements domain.n
     
     @Override
     public void receiveInput(float[] input){
-        for(float neuronInput : input){
-            //this.
+        NeuronLayer inputLayer = (NeuronLayer) getLayerById(INPUT_LAYER_ID);
+        
+        for(int c = 0; c < getInputLayerSize(); c++){
+            inputLayer.receiveInput(c, input[c]);
         }
+    }
+    
+    @Override
+    public float[] getOutput(){
+        float[] output = new float[getOutputLayerSize()];
+        NeuronLayer outputLayer = (NeuronLayer) getLayerById(OUTPUT_LAYER_ID);
+        
+        for(int c = 0; c < getOutputLayerSize(); c++){
+            output[c] = outputLayer.getNeuronExcitation(c);
+        }
+        
+        return output;
     }
     
     private void setInputLayerSize(int size){
