@@ -3,7 +3,9 @@ package domain.layers;
 
 
 /**
- *
+ * Binary synapse which holds connectionMap and weights representing the connections 
+ * between its input and output neuron layers.
+ * 
  * @author Alexander Atanasov
  */
 public class MapedBinarySynapseLayer extends BinarySynapseLayer implements MapableBinarySynapseLayer {

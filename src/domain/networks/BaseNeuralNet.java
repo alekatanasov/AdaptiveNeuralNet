@@ -2,7 +2,10 @@
 package domain.networks;
 
 import domain.entities.DesignatedEntity;
+import domain.layers.BaseNeuronLayer;
 import domain.layers.NetworkLayer;
+import domain.layers.NeuronLayer;
+import domain.layers.NeuronLayer.ActivationFunction;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +14,9 @@ import java.util.List;
  * @author Alexander Atanasov
  */
 public abstract class BaseNeuralNet extends DesignatedEntity implements domain.networks.NeuralNet{
+    public static final String INPUT_LAYER_ID = "input";
+    public static final String OUTPUT_LAYER_ID = "output";
+    
     private int inputLayerSize;
     private int outputLayerSize;
     private List<NetworkLayer> networkLayers;
@@ -66,5 +72,19 @@ public abstract class BaseNeuralNet extends DesignatedEntity implements domain.n
     
     private void initializeNetworkLayers(){
         this.networkLayers = new ArrayList<>();
+    }
+    
+    /**
+     * This method should be used after initializeNetworkLayers method otherwise an exception will
+     * occur.
+     */
+    private void addInputOutputLayers(){
+        NeuronLayer input = new BaseNeuronLayer(BaseNeuralNet.INPUT_LAYER_ID, getInputLayerSize(),
+                                                ActivationFunction.SIGMOID);
+        NeuronLayer output = new BaseNeuronLayer(BaseNeuralNet.OUTPUT_LAYER_ID, getOutputLayerSize(),
+                                                ActivationFunction.SIGMOID);
+        
+        addLayer(input);
+        addLayer(output);
     }
 }

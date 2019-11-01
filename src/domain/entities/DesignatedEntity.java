@@ -13,7 +13,12 @@ public class DesignatedEntity implements DesignateableEntity {
         this.setId(id);
     }
     
-    public void setId(String id){
+    @Override
+    public final String getId(){
+        return this.id;
+    }
+    
+    private void setId(String id){
         if(id == null){
             throw new IllegalArgumentException("id cannot be null");
         } else if(id.equals("")){
@@ -21,10 +26,5 @@ public class DesignatedEntity implements DesignateableEntity {
         }
         
         this.id = id;
-    }
-    
-    @Override
-    public String getId(){
-        return this.id;
     }
 }

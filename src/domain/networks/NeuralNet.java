@@ -13,14 +13,21 @@ public interface NeuralNet extends DesignateableEntity {
      * Attempts to add new layer to the network
      * 
      * @param layer
-     * @param layerId
      * 
      * @return true if the layer was added successfully
      */
     public boolean addLayer(NetworkLayer layer);
     
+    /**
+     * 
+     * @return Positive integer representing the size of the input layer of this network
+     */
     public int getInputLayerSize();
     
+    /**
+     * 
+     * @return Positive integer representing the size of the output layer of this network
+     */
     public int getOutputLayerSize();
     
     /**
