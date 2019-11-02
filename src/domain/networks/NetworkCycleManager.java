@@ -2,6 +2,9 @@
 
 package domain.networks;
 
+import domain.layers.NetworkLayer;
+import java.util.List;
+
 /**
  * Defines each network layer priority in the excitation cycle. Also handles cycle calls to
  * every layer in its network.
@@ -9,7 +12,7 @@ package domain.networks;
  * @author Alexander Atanasov
  */
 public interface NetworkCycleManager {
-    public void addLayer(int position);
+    public List<NetworkLayer> getLayerPriorityTable();
     
     public void nextActiveCycle();
     
