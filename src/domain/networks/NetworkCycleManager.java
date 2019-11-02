@@ -14,6 +14,8 @@ import java.util.List;
 public interface NetworkCycleManager {
     public List<NetworkLayer> getLayerPriorityTable();
     
+    public int getPriorityTableSize();
+    
     public void nextActiveCycle();
     
     public void nextPassiveCycle();
