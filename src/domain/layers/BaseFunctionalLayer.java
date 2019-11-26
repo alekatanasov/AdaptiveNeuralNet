@@ -11,8 +11,9 @@ import domain.entities.DesignatedEntity;
 public abstract class BaseFunctionalLayer extends DesignatedEntity implements FunctionalNetworkLayer {
     private ActivationFunction activationFunction;
     
-    public BaseFunctionalLayer(String id){
+    public BaseFunctionalLayer(String id, ActivationFunction function){
         super(id);
+        setActivationFunction(function);
     }
     
     @Override
@@ -20,7 +21,8 @@ public abstract class BaseFunctionalLayer extends DesignatedEntity implements Fu
         return this.activationFunction;
     }
     
-    public void setActivationFunction(ActivationFunction function){
+    @Override
+    public final void setActivationFunction(ActivationFunction function){
         if(function == null){
             throw new IllegalArgumentException("activation function cannot be null");
         }

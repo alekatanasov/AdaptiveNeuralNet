@@ -18,14 +18,22 @@ public interface FunctionalNetworkLayer extends NetworkLayer {
      */
     public ActivationFunction getActivationFunction();
     
-    public void setActivationFunction();
+    public void setActivationFunction(ActivationFunction function);
     
     public void setInput(float[] input);
     
     public float getOutput();
     
+    /**
+     * 
+     * @return Positive integer representing the size of the input of this functional layer.
+     */
     public int getInputSize();
     
+    /**
+     * 
+     * @return Positive integer representing the size of the output of this functional layer.
+     */
     public int getOutputSize();
     
 }
