@@ -4,7 +4,7 @@ package domain.layers;
 import domain.entities.DesignateableEntity;
 
 /**
- * Root interface for all neuron and synapse layers.
+ * Root interface for all network layers.
  * 
  * @author Alexander Atanasov
  */
