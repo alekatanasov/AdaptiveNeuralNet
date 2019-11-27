@@ -14,6 +14,13 @@ public interface NodeLayer {
      */
     public int getSize();
     
+    /**
+     * 
+     * @param nodePosition Non negative number representing the position of the target node in the
+     *                     array of nodes in this NodeLayer.
+     * 
+     * @param input Value to add to the current value of the specified node.
+     */
     public void addToNode(int nodePosition, float input);
     
     /**

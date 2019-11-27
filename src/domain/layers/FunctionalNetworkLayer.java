@@ -8,7 +8,7 @@ package domain.layers;
  * @author Alexander Atanasov
  */
 public interface FunctionalNetworkLayer extends NetworkLayer {
-    public enum ActivationFunction{
+    public enum ActivationFunction {
         LINEAR
     }
     
@@ -18,11 +18,25 @@ public interface FunctionalNetworkLayer extends NetworkLayer {
      */
     public ActivationFunction getActivationFunction();
     
+    /**
+     * 
+     * @param function ActivationFunction which will be in use from now on by this layer.
+     */
     public void setActivationFunction(ActivationFunction function);
     
+    /**
+     * Passes new input to this FunctionalNetworkLayer.
+     * 
+     * @param input non null float array representing the new input.
+     */
     public void setInput(float[] input);
     
-    public float getOutput();
+    /**
+     * Retrieves the latest output of this FunctionalNetworkLayer.
+     * 
+     * @return non null float array representing the output of this layer.
+     */
+    public float[] getOutput();
     
     /**
      * 
