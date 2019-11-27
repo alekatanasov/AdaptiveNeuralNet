@@ -32,5 +32,13 @@ public interface NodeLayer {
     /**
      * Sets all nodes to zero.
      */
-    public void reset();
+    public void resetNodes();
+    
+    /**
+     * 
+     * @param nodePosition The position of the node in the nodes array.
+     * 
+     * @return The value of the specified node.
+     */
+    public float getNodeValue(int nodePosition);
 }

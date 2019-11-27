@@ -10,7 +10,7 @@ public class StandardWeightSet implements WeightSet{
     private float[] weights;
     
     public StandardWeightSet(float[] weights){
-        
+        setWeights(weights);
     }
     
     public StandardWeightSet(int size){

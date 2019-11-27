@@ -3,7 +3,9 @@
 package domain.layers;
 
 /**
- *
+ * A FunctionalNetworkLayer with two node layers designated input and output. Data flow is 
+ * linear - from input to output.
+ * 
  * @author Alexander Atanasov
  */
 public abstract class DualNodeLayer extends BaseFunctionalLayer {
@@ -28,9 +30,10 @@ public abstract class DualNodeLayer extends BaseFunctionalLayer {
     }
     
     @Override
-    public void setInput(float[] input){
+    public void passInput(float[] input){
         NodeLayer nodeLayer = this.getInputLayer();
         
+        // check if the new input is of correct size
         if(input.length != nodeLayer.getSize()){
             throw new IllegalArgumentException("invalid input size");
         }
@@ -40,11 +43,16 @@ public abstract class DualNodeLayer extends BaseFunctionalLayer {
         }
     }
     
+    @Override
+    public float[] getOutput(){
+        return getOutputLayer().getAllNodeValues();
+    }
+    
     /**
      * 
      * @return Reference (no copies) to the inputLayer field.
      */
-    private NodeLayer getInputLayer(){
+    protected NodeLayer getInputLayer(){
         return this.inputLayer;
     }
     
@@ -52,14 +60,24 @@ public abstract class DualNodeLayer extends BaseFunctionalLayer {
      * 
      * @return Reference (no copies) to the outputLayer field.
      */
-    private NodeLayer getOutputLayer(){
+    protected NodeLayer getOutputLayer(){
         return this.outputLayer;
     }
     
+    /**
+     * Initializes the inputLayer field with an instance of the StandardNodelayer.
+     * 
+     * @param size The number of nodes in the input layer.
+     */
     private void initializeInputLayer(int size){
         this.inputLayer = new StandardNodeLayer(size);
     }
     
+    /**
+     * Initializes the outputLayer field with an instance of the StandardNodelayer.
+     * 
+     * @param size The number of nodes in the output layer.
+     */
     private void initializeOutputlayer(int size){
         this.outputLayer = new StandardNodeLayer(size);
     }

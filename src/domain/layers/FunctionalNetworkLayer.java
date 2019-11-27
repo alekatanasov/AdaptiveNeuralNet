@@ -29,7 +29,7 @@ public interface FunctionalNetworkLayer extends NetworkLayer {
      * 
      * @param input non null float array representing the new input.
      */
-    public void setInput(float[] input);
+    public void passInput(float[] input);
     
     /**
      * Retrieves the latest output of this FunctionalNetworkLayer.

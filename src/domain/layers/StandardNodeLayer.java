@@ -32,12 +32,21 @@ public class StandardNodeLayer implements NodeLayer {
     }
     
     @Override
-    public void reset(){
+    public void resetNodes(){
         float[] nodeArray = getNodes();
         
         for(int c = 0; c < getNodes().length; c++){
             nodeArray[c] = 0;
         }
+    }
+    
+    @Override
+    public float getNodeValue(int nodePosition){
+        if(nodePosition < 0 || nodePosition > getNodes().length){
+            throw new IllegalArgumentException("nodePosition out of bounds");
+        }
+        
+        return getNodes()[nodePosition];
     }
     
     private void initializeNodes(int size){
