@@ -17,16 +17,25 @@ public class FullConnectionDualLayer extends DualNodeLayer {
     
     @Override
     public void nextActiveCycle(){
+        float inputNodeValue;
+        float weightedValue;
+        int outputLayerSize = this.getOutputLayer().getSize();
+        
         for(int c = 0; c < getInputLayer().getSize(); c++){
-            for(int j = 0; j < this.getOutputLayer().getSize(); j++){
-                //
+            inputNodeValue = getInputLayer().getNodeValue(c);
+            inputNodeValue = applyActivationFunction(inputNodeValue);
+            
+            for(int j = 0; j < outputLayerSize; j++){
+                weightedValue = inputNodeValue * getWeightSet().getWeight(c*outputLayerSize + j);
+                getOutputLayer().addToNode(j, inputNodeValue);
             }
         }
     }
     
     @Override
     public void nextPassiveCycle(){
-        // to do
+        getInputLayer().resetNodes();
+        getOutputLayer().resetNodes();
     }
     
     /**

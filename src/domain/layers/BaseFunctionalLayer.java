@@ -29,4 +29,23 @@ public abstract class BaseFunctionalLayer extends DesignatedEntity implements Fu
         
         this.activationFunction = function;
     }
+    
+    protected float applyActivationFunction(float rawValue){
+        float resultValue = 0;
+        
+        switch(getActivationFunction()){
+            case LINEAR:
+                resultValue = linearActivation(rawValue);
+                break;
+                
+            default:
+                throw new IllegalArgumentException("unknown activation function");
+        }
+        
+        return resultValue;
+    }
+    
+    private float linearActivation(float rawValue){
+        return rawValue;
+    }
 }
